@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color:crimson;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+}
+
+main {
+    background-color:white;
+    width: 70%;
+    margin: 0 auto 1rem auto;
+    padding: 0 1rem 2rem 1rem;
+}
+
+header {
+    background-color: gainsboro;
+    border-radius:0.25rem;
+    padding: 2rem 1rem;
+    margin-bottom:2rem;
+}
