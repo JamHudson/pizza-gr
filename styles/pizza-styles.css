@@ -21,3 +21,8 @@ header {
     padding: 2rem 1rem;
     margin-bottom:2rem;
 }
+
+header img {
+    float: right;
+    max-width: 200px;
+}
