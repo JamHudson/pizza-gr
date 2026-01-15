@@ -15,7 +15,7 @@
 <body>
     <main>
         <header>
-            <img src="images/pizzaguy.jpg" alt="pizza guy">
+            <img src="images/pizzaguy.png" alt="pizza guy">
             <h1>This is Pizza.</h1>
             <h2>Serving Pizza.</h2>
             <hr>
@@ -52,28 +52,31 @@
                 <legend>Select Toppings</legend>
 
                 <label for="pepperoni">
-                    <input type="checkbox" value="pepperoni" id="pepperoni" name="toppings">Pepperoni
+                    <input type="checkbox" value="pepperoni" id="pepperoni" name="toppings[]">Pepperoni
                 </label>
                 <label for="olives">
-                    <input type="checkbox" value="olives" id="olives" name="toppings">Olives
+                    <input type="checkbox" value="olives" id="olives" name="toppings[]">Olives
                 </label>
                 <label for="sausage">
-                    <input type="checkbox"  value="sausage" id="sausage" name="toppings">Sausage
+                    <input type="checkbox"  value="sausage" id="sausage" name="toppings[]">Sausage
                 </label>
                 <label for="artichokes">
-                    <input type="checkbox" value="artichokes" id="artichokes" name="toppings">Artichokes
+                    <input type="checkbox" value="artichokes" id="artichokes" name="toppings[]">Artichokes
                 </label>
                 <label for="bacon">
-                    <input type="checkbox" value="bacon" id="bacon" name="toppings">Bacon
+                    <input type="checkbox" value="bacon" id="bacon" name="toppings[]">Bacon
                 </label>
                 <label for="garlic">
-                    <input type="checkbox" value="garlic" id="garlic" name="toppings">Garlic
+                    <input type="checkbox" value="garlic" id="garlic" name="toppings[]">Garlic
                 </label>
             </fieldset>
+            <!-- Pizza Size -->
             <fieldset>
                 <legend>Pizza Size</legend>
                 <select id="pizza-size"></select>
             </fieldset>
+            <!-- Comment Box -->
+            <input type="text">
             <!-- Submit Button -->
             <button type="submit" id="order-button">Place Order</button>
         </form>
