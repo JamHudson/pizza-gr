@@ -58,7 +58,7 @@
                     <input type="checkbox" value="olives" id="olives" name="toppings[]">Olives
                 </label>
                 <label for="sausage">
-                    <input type="checkbox"  value="sausage" id="sausage" name="toppings[]">Sausage
+                    <input type="checkbox" value="sausage" id="sausage" name="toppings[]">Sausage
                 </label>
                 <label for="artichokes">
                     <input type="checkbox" value="artichokes" id="artichokes" name="toppings[]">Artichokes
@@ -69,14 +69,26 @@
                 <label for="garlic">
                     <input type="checkbox" value="garlic" id="garlic" name="toppings[]">Garlic
                 </label>
+                <label for="mushrooms">
+                    <input type="checkbox" value="mushrooms" id="mushrooms" name="toppings[]">Mushrooms
+                </label>
             </fieldset>
             <!-- Pizza Size -->
             <fieldset>
                 <legend>Pizza Size</legend>
-                <select id="pizza-size"></select>
+                <select id="size" name="size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="extra large">Extra Large</option>
+                </select>
             </fieldset>
             <!-- Comment Box -->
-            <input type="text">
+            <label for="comment">Comments:</label>
+            <textarea rows="5" id="comment" name="comment"></textarea>
+            
+            <label for=><input checked type="checkbox"> Sign me up for service.</label>
+            <br>
             <!-- Submit Button -->
             <button type="submit" id="order-button">Place Order</button>
         </form>
