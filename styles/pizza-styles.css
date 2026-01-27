@@ -3,13 +3,13 @@
 }
 
 body {
-    background-color:crimson;
+    background-color: crimson;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
 }
 
 main {
-    background-color:white;
+    background-color: white;
     width: 70%;
     margin: 0 auto 1rem auto;
     padding: 0 1rem 2rem 1rem;
@@ -17,9 +17,9 @@ main {
 
 header {
     background-color: gainsboro;
-    border-radius:0.25rem;
+    border-radius: 0.25rem;
     padding: 2rem 1rem;
-    margin-bottom:2rem;
+    margin-bottom: 2rem;
 }
 
 header img {
@@ -39,7 +39,7 @@ header img {
 }
 
 legend {
-    color:darkgreen;
+    color: darkgreen;
     font-variant: small-caps;
     font-size: 1.5rem;
     padding: 0 1rem;
@@ -48,18 +48,25 @@ legend {
 fieldset {
     border: 1px solid darkgreen;
     padding: 1rem;
-    margin-bottom:1.25rem;
+    margin-bottom: 1.25rem;
 }
 
 label {
-    display:block;
+    display: block;
     padding-top: 0.5rem;
 }
 
-input[type="text"], textarea, select {
-    width:100%;
+input[type="text"],
+textarea,
+select {
+    width: 100%;
     border: 2px dotted darkgrey;
     border-radius: 0.25rem;
     margin-bottom: 1rem;
     padding: 0.75rem;
+}
+
+.err {
+    color: darkred;
+    display: none;
 }
