@@ -20,5 +20,8 @@
   "homepage": "https://github.com/JamHudson/pizza-gr#readme",
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }
