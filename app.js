@@ -7,6 +7,9 @@ const app = express();
 // Set the PORT
 const PORT = 3000;
 
+// Set view engine
+app.set('view engine', 'ejs');
+
 // Enable static file serving
 app.use(express.static('public'));
 
