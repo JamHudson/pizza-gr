@@ -2,14 +2,28 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confirmation</title>
 </head>
 
 <body>
-    <h1>Thank you for your order</h1>
-    <a id="order-button" href="/" role="button">Place Another Order</a>
+  <h1>Thank you for your order, <%=order.fname %>.</h1>
+  <h2>Order Details</h2>
+  <p>Name: <%=order.fname %> <%=order.lname %></p>
+  <p>Email: <%=order.email %></p>
+  <p>For: <%=order.method%></p>
+  <p>Toppings:</p>
+  <% if (Array.isArray(order.toppings)){%>
+  <ul>
+    <%order.toppings.forEach(topping=>{%><li><%=topping%></li><% })%>
+  </ul>
+  <%} else {%><p>None</p><%} %>
+  <p>Size: <%=order.size%></p>
+  <p>Comment: <%=order.comment%></p>
+  <p>Date/Time: <%=order.timestamp.toLocaleString()%> </p>
+
+  <a id="order-button" href="/" role="button">Place Another Order</a>
 </body>
 
 </html>
