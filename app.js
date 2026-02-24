@@ -31,7 +31,7 @@ app.get(`/contact`, (req, res) => {
 });
 
 app.get(`/admin`, (req, res) => {
-    res.send(orders);
+    res.render('admin');
     // res.sendFile(`${import.meta.dirname}`)
 });
 
