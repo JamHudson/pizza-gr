@@ -10,12 +10,11 @@ const PORT = 3000;
 // Set view engine
 app.set('view engine', 'ejs');
 
+// Middleware
+
 // Enable static file serving
 app.use(express.static('public'));
-
-// "Middleware" that allows express to read
-// form data and store it in req.body
-
+// Allows express to read form data and store it in req.body
 app.use(express.urlencoded({ extended: true }));
 
 // Create a temporary array to store orders
@@ -24,15 +23,11 @@ const orders = [];
 // Define default "route".
 /* req = request; res = response */
 app.get(`/`, (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/home.html`)
+    res.render('home');
 });
 
 app.get(`/contact`, (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/contact.html`)
-});
-
-app.get(`/thank-you`, (req, res) => {
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`)
+    res.render('contact');
 });
 
 app.get(`/admin`, (req, res) => {
@@ -54,7 +49,7 @@ app.post(`/submit-order`, (req, res) => {
 
     orders.push(order);
 
-    res.sendFile(`${import.meta.dirname}/views/confirmation.html`)
+    res.render('confirmation');
 });
 
 
