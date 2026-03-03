@@ -3,6 +3,7 @@ import express from 'express';
 import mysql2 from 'mysql2';
 import dotenv from 'dotenv';
 
+// Configure environment variables
 dotenv.config();
 // Create an express app
 const app = express();
@@ -30,17 +31,14 @@ const pool = mysql2.createPool({
 }).promise();
 
 // Database test route
-app.get('/db-test', async(req, res) => {
+app.get('/db-test', async (req, res) => {
     try {
         const pizza_orders = await pool.query('SELECT * FROM orders');
         res.send(pizza_orders[0]);
-    } catch(err) {
-        console.error('Database error: ',err);
+    } catch (err) {
+        console.error('Database error: ', err);
     }
 });
-
-// Create a temporary array to store orders
-const orders = [];
 
 // Define default "route".
 /* req = request; res = response */
@@ -52,12 +50,14 @@ app.get(`/contact`, (req, res) => {
     res.render('contact');
 });
 
-app.get(`/admin`, (req, res) => {
-    res.render('admin', { orders });
+app.get(`/admin`, async (req, res) => {
+    let sql = 'SELECT * FROM orders ORDER BY timestamp DESC';
+    const orders = await pool.query(sql);
+    res.render('admin', { orders: orders[0] });
     // res.sendFile(`${import.meta.dirname}`)
 });
 
-app.post(`/submit-order`, (req, res) => {
+app.post(`/submit-order`, async (req, res) => {
     const order = {
         fname: req.body.fname,
         lname: req.body.lname,
@@ -67,9 +67,23 @@ app.post(`/submit-order`, (req, res) => {
         size: req.body.size,
         comment: req.body.comment,
         timestamp: new Date()
-    };
+    }
 
-    orders.push(order);
+    // Create an array of order data
+    const params = [
+        req.body.fname,
+        req.body.lname,
+        req.body.email,
+        "delivery", // req.body.method,
+        Array.isArray(req.body.toppings) ? req.body.toppings.join(", ") : "none",
+        req.body.size
+    ]
+
+    console.log(params[3]);
+    // Insert a new order into the database
+    const sql = `INSERT INTO orders (fname, lname, email, method, toppings, size) VALUES (?, ?, ?, ?, ?, ?)`;
+
+    const result = await pool.execute(sql, params);
 
     res.render('confirmation', { order });
 });
