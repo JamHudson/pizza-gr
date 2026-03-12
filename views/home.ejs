@@ -23,6 +23,16 @@
             <p>Communicate with Pizza</p>
             <a id="contact-button" href="/contact" role="button">Commune</a>
         </header>
+
+        <!-- Display form errors, if they exist -->
+        <% if (typeof errors != 'undefined') {%>
+            <ul>
+                <% errors.forEach(error => { %>
+                    <li><%=error%></li>
+                <%});%>
+            </ul>
+        <%}%>
+
         <!-- "post" is more secure than "get" -->
         <form id="pizza-form" action="/submit-order" method="post">
             <!-- Contact Info -->

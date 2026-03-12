@@ -2,6 +2,7 @@
 import express from 'express';
 import mysql2 from 'mysql2';
 import dotenv from 'dotenv';
+import { validateForm } from './validation.js';
 
 // Configure environment variables
 dotenv.config();
@@ -68,13 +69,18 @@ app.post(`/submit-order`, async (req, res) => {
         comment: req.body.comment,
         timestamp: new Date()
     }
-
+    // Validate data
+    const { isValid, errors } = validateForm(order);
+    if (!isValid) {
+        res.render('home', { errors });
+        return;
+    }
     // Create an array of order data
     const params = [
         req.body.fname,
         req.body.lname,
         req.body.email,
-        "delivery", // req.body.method,
+        req.body.method, // req.body.method,
         Array.isArray(req.body.toppings) ? req.body.toppings.join(", ") : "none",
         req.body.size
     ]
@@ -92,5 +98,5 @@ app.post(`/submit-order`, async (req, res) => {
 // Start the server and listen on the specified PORT
 app.listen(PORT, () => {
     console.log(`Server is running at
-        http://localhost:${PORT}`);
+        http://localhost:${PORT}`)
 });
